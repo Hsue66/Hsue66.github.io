@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Hydejack
-slug: hydejack
+title: Projects
+slug: projects
 menu: true
 order: 2
 description: >
