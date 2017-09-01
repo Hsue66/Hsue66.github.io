@@ -10,6 +10,6 @@ description: >
   Open `_featured_tags/hyde.md` to edit this text.
 
 # http://jsfiddle.net/LPxrT/
-image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
+image: '/assets/img/nap.jpg'
 color: '#268bd2'
 ---
