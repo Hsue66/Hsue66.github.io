@@ -2,7 +2,7 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 hsue66:
-  name:              <firstname> <lastname>
+  name:              Sumin Hong
   email:             <mail@domain.tld>
 
   # Used at the bottom of each page and at the top of the `about` layout

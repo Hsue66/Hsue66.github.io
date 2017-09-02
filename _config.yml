@@ -22,7 +22,7 @@ description:         >
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              <firstname> <lastname>
+  name:              Sumin Hong
   email:             <mail@domain.tld>
 
 # Fallback image and color
