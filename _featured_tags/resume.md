@@ -1,8 +1,7 @@
 ---
-layout: list
+layout: resume
 title: Resume
 slug: resume
-layout: resume
 menu: true
 order: 3
 ---
