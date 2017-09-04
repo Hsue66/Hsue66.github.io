@@ -49,19 +49,7 @@ as did previous versions of the theme.
 The new PRO Version includes additional features for professionals:
 A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
 
-This table details what is and isn't included in each respective version.
-
-|                                  | Free               | PRO                |
-|:---------------------------------|:------------------:|:------------------:|
-| Blog                             | &#x2714;           | &#x2714;           |
-| Features (see below)             | &#x2714;           | &#x2714;           |
-| [Portfolio] Layout               |                    | &#x2714;           |
-| [Resume] Layout                  |                    | &#x2714;           |
-| [Welcome] Layout                 |                    | &#x2714;           |
-| License                          | [MIT][license]     | [PRO]              |
-| Price                            | Free               | $34                |
-| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [**Buy Now – $34**][buy][^3] |
-
+This table details what is and isn't included in each respective version
 Open `about.md` to edit this text.
 
 [^1]: Applies after the initial page load.  
