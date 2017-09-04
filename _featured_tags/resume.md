@@ -4,15 +4,13 @@ title: Resume
 slug: resume
 menu: true
 order: 3
----
 
-## Hydejack
-Hydejack is a cutting-edge Jekyll theme that combines the best of static sites and modern web apps. It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility, page-load speed or SEO.
+description: >
+  Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content.
+  It’s based on Poole, the Jekyll butler.
+  Open `_featured_tags/hyde.md` to edit this text.
 
-> Your presence on the web --- A [blog], a [portfolio] and a [resume].
-{:.lead}
----
-
-> # http://jsfiddle.net/LPxrT/
+# http://jsfiddle.net/LPxrT/
 image: '/assets/img/nap.jpg'
 color: '#268bd2'
+---
