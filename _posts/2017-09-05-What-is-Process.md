@@ -30,7 +30,7 @@ When program is loaded into memory, It becomes Process.
 
 Process state
 -------------
-![process state](../assets/img/postimg/procstate.png)
+![process state](/assets/img/postimg/procstate.png)
 * new : process 생성
 * ready : process 대기 (할당되기 전)
 * running : process 동작
