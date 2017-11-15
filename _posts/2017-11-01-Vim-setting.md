@@ -46,6 +46,7 @@ Vim Theme은 [Awesome Vim Color Scheme](https://github.com/rafi/awesome-vim-colo
 
 나는 `Dracula`로 했는데 [Dracula](https://draculatheme.com)사이트 가면 다양한 에디터, 터미널 제공해서 통일하는거 좋아하는사람이 쓰기 좋은듯 (나는 vim말고 iterm2에도 적용했음)
 
+<br />
 __Plugin 적용방법__
 1. 위 코드처럼~/.vimrc파일에서 call사이에 Plugin추가
 ```
@@ -65,6 +66,7 @@ color dracula
 vim 다시 실행하면 바뀐 테마로 표시된다.
 
 
+<br />
 __Plugin 삭제방법__
 1. ~/.vimrc파일에서 삭제하려는 Plugin 지우기
 2. :so%
