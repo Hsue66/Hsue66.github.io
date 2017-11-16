@@ -2,6 +2,7 @@
 layout: post
 title: Vim setting
 tags: [vim]
+author: hsue66 
 ---
 
 Vim setting

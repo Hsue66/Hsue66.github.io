@@ -2,17 +2,15 @@
 # To use this file, rename it to `resume.yml` and delete `resume.json`.
 ---
   basics:
-    name: "Richard Hendricks"
+    name: "Sumin Hong"
     label: "Programmer"
     picture: "https://placehold.it/126x126"
     email: ""
-    phone: "(912) 555-4321"
-    website: "https://richardhendricks.com"
+    phone: ""
+    website: "https://hsue66.github.io"
     summary: |
-      Hej, HI
-      k interests range widely, everything from quantum computing to chaos theory.
-      He could tell you about it, but THAT would NOT be a “length-limited” conversation!
-
+      Computer Engineering
+     
       Open `_data/resume.json` to edit this text.
     location:
       address: "2712 Broadway St"

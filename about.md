@@ -4,7 +4,7 @@ title: About
 ---
 
 
-## Hydejack
+## Hsue
 Hydejack is a cutting-edge Jekyll theme that combines the best of static sites and modern web apps. It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility, page-load speed or SEO.
 
 > Your presence on the web --- A [blog], a [portfolio] and a [resume].
@@ -21,21 +21,7 @@ Both the PRO *and* free version includes all of the features listed below:
 * Advanced animations, inspired by Material Design
 * A customizable sidebar that turns into a touch-enabled app drawer on mobile
 * Near-perfect [Google PageSpeed Score](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F)[^2]
-* Even higher *perceived speed* thanks to pre-fetching and latency-hiding
-* Support for categories and tags --- even when hosting on GitHub Pages
-* Built-in collection of social media icons
-* Author section below each article and multiple authors
-* Simple and semantic HTML --- can be viewed even with text-based browsers
-* Progressive enhancement --- sacrifice features, not content
-* Google Analytics and Google Fonts support
-* Blog layout with pagination
-* Syntax highlighting
-* Math formulas via LaTeX
-* Disqus comments
-* RSS feed
-* Print layout
-
-Open `about.md` to edit this text.
+text.
 
 ### [Documentation][docs]{:data-flip="title"}
 Hydejack is documented extensively.

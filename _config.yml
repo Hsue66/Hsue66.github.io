@@ -24,6 +24,11 @@ description:         >
 author:
   name:              Sumin Hong
   email:             <mail@domain.tld>
+  picture:          
+    path:            /assets/img/me.jpg
+    srcset:
+        1x:         /assets/img/me.jpg
+        2x:         /assets/img/me@2x.jpg
 
 # Fallback image and color
 image:               /assets/img/nap.jpg
@@ -48,6 +53,12 @@ google_analytics:    <UA-XXXXXXXX-X>
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
 disqus_shortname:    <username>
+
+defaults:
+    - scope:
+        type: posts
+    values:
+        comments: true
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2017. All rights reserved.'
@@ -129,3 +140,6 @@ compress_html:
 
 sass:
   style:             compressed
+
+plugins:
+  - jekyll-avatar
