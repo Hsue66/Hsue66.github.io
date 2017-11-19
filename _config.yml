@@ -55,7 +55,7 @@ google_analytics:    <UA-XXXXXXXX-X>
 disqus_shortname:    <username>
 
 defaults:
-    - scope:
+    scope:
         type: posts
     values:
         comments: true
