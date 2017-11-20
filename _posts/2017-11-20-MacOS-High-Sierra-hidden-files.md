@@ -5,7 +5,7 @@ tags: [MacOS]
 author: hsue66 
 ---
 
-> IOS개발하면서 simulator에 있는 data를 보려고하다가 찾게된 방법이다.
+> IOS개발하면서 simulator에 있는 data를 보려고하다가 찾게된 방법이다.(+ simulator는 AirDrop이 안된다.)
 참고로 simulator경로는 `~/Library/Developer/CoreSimulator/Devices/`+ 자기가 사용중인 device명
 
 숨김파일 보는 방법
