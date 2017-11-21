@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seguePlayerController"{			// AVPlayerViewController로 이동하는 segue
+        if segue.identifier == "seguePlayerController"{				// AVPlayerViewController로 이동하는 segue
             let videoURL = NSURL(fileURLWithPath: video1!)
             player = AVPlayer(url: videoURL as URL)
             
@@ -88,14 +88,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        video2 = Bundle.main.path(forResource: "SampleVideo2", ofType: ".mp4")   	// SampleVideo2.mp4에 해당하는 동영상주소를 video2에 저장 
+        video2 = Bundle.main.path(forResource: "SampleVideo2", ofType: ".mp4")   // SampleVideo2.mp4에 해당하는 동영상주소를 video2에 저장 
 	}
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "seguePlayerLayer"{		// VideoViewController로 이동하는 segue
             let destination = segue.destination as! VideoViewController
-            destination.video = video2		// video2값을 VideoViewController의 video값으로 전달
+            destination.video = video2			// video2값을 VideoViewController의 video값으로 전달
         }
 	}
 }
@@ -105,7 +105,7 @@ VideoViewController.swift
 ```swift
 import AVFoundation		// for AVPlayer
 ```
-```
+```swift
 class VideoViewController: UIViewController {
 
     var video: String?
@@ -125,7 +125,7 @@ class VideoViewController: UIViewController {
         vView.layer.addSublayer(playerLayer)			// vView에 playerLayer를 추가하여 동영상을 표시함
     }
 
-    override func viewDidLayoutSubviews() {				// subView인 playerLayer의 영역 설정
+    override func viewDidLayoutSubviews() {			// subView인 playerLayer의 영역 설정
         super.viewDidLayoutSubviews()
         playerLayer.frame = vView.bounds
     }
