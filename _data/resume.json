@@ -1,29 +1,29 @@
 {
   "basics": {
     "name": "Sumin Hong",
-    "label": "Programmer",
+    "label": "Software Programmer",
     "picture": "https://placehold.it/126x126",
     "email": "",
-    "phone": "(912) 555-4321",
-    "website": "https://richardhendricks.com",
-    "summary": "Hej, HI interests range widely, everything from quantum computing to chaos theory.He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
+    "phone": "",
+    "website": "https://www.hsue.github.io",
+    "summary": "Hi, I am a research intern in Data Mining Lab at Seoul National University. I am advised by Prof. U Kang. I received B.S. in Computer Science at Korea Aerospace University.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "",
+      "postalCode": "",
+      "city": "",
+      "countryCode": "",
+      "region": ""
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "neutralthoughts",
+        "network": "",
+        "username": "",
         "url": ""
       },
       {
-        "network": "SoundCloud",
-        "username": "dandymusicnl",
-        "url": "https://soundcloud.com/dandymusicnl"
+        "network": "",
+        "username": "",
+        "url": ""
       }
     ]
   },

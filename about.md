@@ -3,56 +3,58 @@ layout: about
 title: About
 ---
 
+## Education
+**B.S. Computer Science**  
+&nbsp;&nbsp; Korea Aerospace University, Korea (Mar. 2013 ~ Feb. 2018)  
+&nbsp;&nbsp; Graduate with Honors (Cum Laude)
 
-## Hsue
-Hydejack is a cutting-edge Jekyll theme that combines the best of static sites and modern web apps. It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility, page-load speed or SEO.
 
-> Your presence on the web --- A [blog], a [portfolio] and a [resume].
-{:.lead}
 
-It aims to be the complete package for professionals on the web. It features a blog suitable for both prose and technical documentation, a showcase for projects and a resume that fits with the rest of the design.
+## Work Experience
+**SonicTier**, Gyeonggi Regional Research Center  
+&nbsp;&nbsp; - IOS developer (Aug. 2017 ~ Dec.2017)  
+&nbsp;&nbsp; - SonicPlay : Binaural Video Player & Editor    
 
-Open `about.md` to edit this text.
+**Smart Lab**, Helsinki Metropolia University of Applied Science  
+&nbsp;&nbsp; - Software Engineer (Jun.2016 ~ Sep.2016)  
+&nbsp;&nbsp; - Software library for controlling PSoC shield    
 
-### Features
-Both the PRO *and* free version includes all of the features listed below:
+**Integrated Media Systems Center**, University of Southern California  
+&nbsp;&nbsp; - Summer Intern (Jul.2015 ~ Aug.2015)  
+&nbsp;&nbsp; - [MediaQ](https://imsc.usc.edu/platforms/mediaq/) project  
 
-* Full in-app page loading --- no Flash of White, no Flash of Unstyled Content[^1]
-* Advanced animations, inspired by Material Design
-* A customizable sidebar that turns into a touch-enabled app drawer on mobile
-* Near-perfect [Google PageSpeed Score](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F)[^2]
-text.
 
-### [Documentation][docs]{:data-flip="title"}
-Hydejack is documented extensively.
-You can read it [on this site][docs], in the [repository's wiki][wiki], or [download the PDF][download].
 
-Open `about.md` to edit this text.
+## Honors and Awards
+**JungSeok Scholarship**  
+&nbsp;&nbsp; merit based, Korea Aerospace University (2013 ~ 2017)
 
-### Download
-There are two versions of Hydejack: The Free Version includes basic blogging functionality,
-as did previous versions of the theme.
-The new PRO Version includes additional features for professionals:
-A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
+**Gwacheon-si Scholarship**  
+&nbsp;&nbsp; merit based, Gwacheon-si Scholarship Foundation (2013 ~ 2017)
 
-This table details what is and isn't included in each respective version
-Open `about.md` to edit this text.
 
-[^1]: Applies after the initial page load.  
-[^2]: Actual page load speed depends on your hosting provider as well as discipline regarding resolution of images and usage of 3rd party plugins.
-[^3]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).
 
-[blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/projects/
-[resume]: https://qwtel.com/hydejack/resume/
-[welcome]: https://qwtel.com/hydejack/
+## Extracurricular Activities
+**Member of NEXTERS**[^1]  
+&nbsp;&nbsp; - Mobile Application Development & Server Development (Jan.2016 ~ Feb.2017)
 
-[docs]: docs/6.6.0/index.md
-[license]: LICENSE.md
-[pro]: licenses/PRO-license.md
+**Hanium Big Project**[^2]  
+&nbsp;&nbsp; - IoT Project (Apr.2015 ~ Dec.2015)
 
-[download]: https://github.com/qwtel/hydejack/releases
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/AQTTVBOE
 
-[wiki]: https://github.com/qwtel/hydejack/wiki
+## Teaching Experience
+**Teaching Assistant**, Korea Aerospace University  
+&nbsp;&nbsp; Subject : Data Structure (Spring 2017, SW3203)
+
+**Tutor**, Korea Aerospace University  
+&nbsp;&nbsp; Subject : C Programming Language (Fall 2015, SW3106)  
+
+**Tutor**, Korea Aerospace University  
+&nbsp;&nbsp; Subject : Discrete Mathematics (Spring 2015, SW3101)  
+
+## Technical Skills
+- C/C++, Java, Python, SQL, React Native, Swift  
+- Tensorflow, MySQL, Android Studio, Xcode, Git  
+
+[^1]: 디자이너와 개발자를 위한 IT연합동아리 [NEXTERS](http://teamnexters.com)
+[^2]: [한이음](https://www.hanium.or.kr/portal/index.do)
