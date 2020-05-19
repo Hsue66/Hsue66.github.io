@@ -108,9 +108,48 @@ if 손상시 ) 다른 blk try & 손상 blk정보 NN에 보고
 Tree의 단계 : 데이터센터 &supset; 랙 &supset; 노드  
 가용대역폭 : 동일노드 > 동일 랙 다른노드 > 동일 데이터센터 내 다른랙의 노드 > 다른 데이터 센터에 있는 노드  
 ![3read](/assets/img/postimg/3dist.png)  
-$$distance(d_1/r_1/n_1,d_1/r_1/n_1) = 0$$
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$ 
+$$distance(d_1/r_1/n_1,d_1/r_1/n_1) = 0$$  
+$$distance(d_1/r_1/n_1,d_1/r_1/n_2) = 2$$  
+$$distance(d_1/r_1/n_1,d_1/r_2/n_3) = 4$$  
+$$distance(d_1/r_1/n_1,d_2/r_3/n_4) = 6$$  
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$   
 Hadoop은 자동으로 Network Topology인식 X, default ) Network 단일수준 계층 (&forall;노드 &subset; 단일 랙 &subset; 단일 데이터센터)
+
+File Write
+---------------------------
+![3write](/assets/img/postimg/3write.png)  
+1. Client는 DFS의 create()호출로 File 생성  
+2. DFS는 FS의 namespace에 새로운 File을 생성하기 위해 NN에 RPC요청 (blk정보 보내지 X)  
+NN : 요청 file 중복검사, client 권한검사 ... 수행  
+ - if Pass) 새로운 File 레코드 생성  
+ DFS는 FSOutputStream반환, FSDataOutputStream은 DFSOutputStream으로 매핑
+ - if Fail) 생성실패, IOException 발생  
+3. Client가 data쓸때, DFSOutputStream은 Data를 패킷으로 분리 & 데이터큐에 패킷 전달
+4. DataStreamer가 데이터큐내 패킷 처리  
+NN에 저장할 DN목록 요청. DN으로 Pipeline형성  
+1st DN에 패킷전송, Pipeline내에서 다음 DN으로 전달
+5. DFSOutputStream은 DN승인여부 대기하는 ack큐 유지.  
+ack큐내 패킷은 Pipeline내 &forall;DN으로 부터 ack 받아야 제거
+6. 쓰기 완료시, Client는 close()호출  
+Pipeline에 남아잇는 &forall;패킷 승인 대기
+7. &forall;패킷 전송완료되면 NN에 '파일완료'보냄  
+NN은 파일blk구성 이미 알고있고, 최소복제 wait 후 최종성공신호 return
+
+#### Write 중 DN에 장애 발생 시  
+Pipeline 닫히고 ack큐 패킷이 데이터큐 앞쪽에 추가(패킷유실 방지)  
+장애 DN을 Pipeline에서 제거. 정상 DN으로 data전송 (NN이 해당 blk불완전 복제 인식 &rarr; 후에 처리)  
+장애발생 DN 복구시, 불완전 blk삭제   
+두개 이상의 DN장애는 희박
+
+#### 복사본 배치
+신뢰성, 쓰기대역폭, 읽기대역폭 tradeoff 관계  
+![3rep](/assets/img/postimg/3rep.png)  
+1st rep : Client와 같은 node에 배치. 외부일 경우, file너무 많거나 바쁜 node제외한 random node 선택  
+2nd rep : 1st rep node와 다른 random 랙의 node에 배치  
+3rd rep : 2nd rep node와 같은 랙의 다른 node에 배치  
++&alpha; rep : 클러스터에 무작위로 배치 (랙 분산되게)  
+**신뢰성**(blk을 두 랙에 저장), **쓰기대역폭**(쓰기는 하나의 network switch통과), **읽기성능**(두 랙 중 가까운 랙), Cluster 전반에 block **분산**(Client는 로컬 랙 한 blk만)의 균형
+
 
 ## 4. HDFS Federation
 ## 5. HDFS High Availability
