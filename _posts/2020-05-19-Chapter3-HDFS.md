@@ -7,8 +7,9 @@
 [ 5. HDFS High Availability ](##5.-hdfs-high-availability)
 
 ## 1. What is HDFS ?
-HDFS (Hadoop Distributed File System)
+HDFS (Hadoop Distributed File System)  
 -------------------------------------
+
 > 가장 효율적인 데이터처리 패턴은 한번쓰고 여러번 읽는 것  
 
 하둡이 제공하는 분산 File System  
@@ -26,8 +27,8 @@ HDFS (Hadoop Distributed File System)
 
 ### * What is Block in HDFS ?
 한번에 읽고 쓸수 있는 데이터의 최대량. **128MB**  
-HDFS File을 특정블록크기의 chunk로 분할 후 각 chunk를 독립적으로 저장.
-![Alt text](./f2c.png)
+HDFS File을 특정블록크기의 chunk로 분할 후 각 chunk를 독립적으로 저장.  
+![f2c](/assets/img/postimg/f2c.png)
 
 cf. Disk Block size : 516B
 #### Block size 큰 이유 : 탐색 비용 최소화
@@ -43,6 +44,13 @@ block 크기 &uarr;  &rarr;  시작점 탐색시간 &darr; == data 전송시간 
 * 복제구현에 적합 (fault tolerance와 availability를 위해 중요)  
   Block을 다수의 머신에 복제  
   장애발생 시 ) 다른 block이용 & 다른복사본으로 복사 (복제계수 정상유지)
+
+Master-Worker pattern
+---------------------------
+1개의 Namenode - 다수의 Datanode
+
+#### Namenode 
+
 
 
 ## 3. Read & Write
