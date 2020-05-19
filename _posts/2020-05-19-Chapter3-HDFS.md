@@ -8,7 +8,7 @@
 
 ## 1. What is HDFS ?
 HDFS (Hadoop Distributed File System)
---------
+-------------------------------------
 > 가장 효율적인 데이터처리 패턴은 한번쓰고 여러번 읽는 것  
 
 하둡이 제공하는 분산 File System  
