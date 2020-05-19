@@ -47,12 +47,15 @@ block 크기 &uarr;  &rarr;  시작점 탐색시간 &darr; == data 전송시간 
 
 #### Block Caching : Off-heap Block Cache
   빈번하게 접근하는 block file 명시적으로 Caching  
-  default ) 하나의 Datanode에 caching. (File단위로도 설정가능)
+  default ) 하나의 Datanode에 caching. (File단위로도 설정가능)  
+  Job Scheduler가 task를 Caching된 Datanode에서 실행되게 할 수 있음. &Rightarrow; 읽기성능 &Uparrow;   
+  Cache Pool : Cache권한, 자원의 용도를 관리하는 관리 group  
+  사용자,App이 Cache Pool에 Cache Directive를 추가하여 특정file을 Caching하도록 할 수 있음.
 
 Master-Worker pattern
 ---------------------------
 1개의 Namenode - 다수의 Datanode
-
+![3arch](/assets/img/postimg/3arch.png)  
 #### Namenode
 File System의 namespace관리  
 File System Tree와 해당 Tree에 포함된 File, Directory에 대한 metadata유지.  
@@ -63,6 +66,9 @@ File System Tree와 해당 Tree에 포함된 File, Directory에 대한 metadata�
 
 #### Datanode
 block저장하고 탐색, 저장한 blk목록을 주기적으로 NN에 보고.
+
+#### HDFS client
+Namenode와 Datanode사이에서 통신하고 FS에 접근
 
 ### Namenode 장애 복구 기능
 > NN 장애시 &Rightarrow; File System 동작 X
@@ -150,6 +156,73 @@ Pipeline 닫히고 ack큐 패킷이 데이터큐 앞쪽에 추가(패킷유실 �
 +&alpha; rep : 클러스터에 무작위로 배치 (랙 분산되게)  
 **신뢰성**(blk을 두 랙에 저장), **쓰기대역폭**(쓰기는 하나의 network switch통과), **읽기성능**(두 랙 중 가까운 랙), Cluster 전반에 block **분산**(Client는 로컬 랙 한 blk만)의 균형
 
-
 ## 4. HDFS Federation
+대형 Cluster 확장성의 걸림돌 : **Memory** ( &because; NN은 FS의 모든 파일,참조정보를 메모리에서 관리 )
+
+HDFS federation
+----------------
+HDFS 확장성 문제 해결.  
+각각의 Namenode가 FS의 namespace나누어 관리  
+```
+1st NN) /User
+2nd NN) /Share
+```
+![3fed](/assets/img/postimg/3fed.png)  
+각 Namenode가 아래 항목 관리
+- namespace volume : namespace의 metadata를 구성  
+각 NN에서 서로 독립 &rarr; NN간 통신X, 한 NN장애여도 다른NN에 영향X
+- block pool : namespace에 포함된 파일의 전체 blk보관  
+block pool저장소는 분리X  
+&forall;DN은 클러스터의 각 NN마다 등록되어있고 block pool에 저장.
+
+#### 마운트 Table
+HDFS Cluster Federation에 접근하기위해 File경로와 NN을 매핑한 Table
+
 ## 5. HDFS High Availability
+Namenode는 Single Point of Failure  
+**새로운 NN으로 장애복구 과정**  
+1. namespace image를 메모리에 로드
+2. edit log 갱신
+3. 전체 DN에서 충분한 block report 받아 안전모드 벗어날때까지 대기   
+
+&Rightarrow; **많은 시간소요**
+
+cf. NN의 갑작스런 장애 거의 X. 계획된 downtime 중요
+
+High Availability 지원
+----------------
+#### HA = Active NN + Standby NN
+활성NN장애시, 대기NN이 역할 받아 처리
+
+#### HDFS 구조 변경
+- HA공유 Storage 사용 : edit log 공유를 위해  
+대기NN활성화 &rarr; 공유 edit log읽어 기존 NN상태와 동기화  
+NFS필러, QJM(Quorum journal manager)사용  
+- DN은 활성NN과 대기NN에 block report전송  
+(&because; 블록매핑정보는 NN의 메모리에 보관)
+- Client는 NN장애를 사용자에게 투명한 방식으로 처리할 수 있도록 구성
+- 대기NN &supset; 보조NN역할, 활성 NN namespace체크포인트 작업 주기적 수행  
+![3snn](/assets/img/postimg/3snn.png)  
+
+#### QJM
+HDFS 전용구현체, HA edit log지원하기 위해 설계됨.  
+Journal Node group에서 동작. 각 edit log는 전체 JN에 동시에 쓰여짐 (Normally, 3개)
+![3qjm](/assets/img/postimg/3qjm.png)
+
+장애복구와 펜싱
+----------------
+
+#### 장애복구 컨트롤러 ( Failover Controller)
+대기NN을 활성화시키는 전환작업 관리  
+기본구현체 : Zookeeper이용 (단 하나의 활성 NN보장)  
+각 NN은 경량 failover control process로 NN의 장애 감시 (by heartbeat)  
+장애발생시 복구 지시  
+
+cf. graceful failover : 유지관리를 위해 관리자가 수동초기화
+
+#### Fencing
+ungraceful failover에선 고장 NN이 실행중인지 아닌지 알 수 없음 &rarr; 시스템 망가뜨리지 않도록 막아야함!
+- QJM : 한번에 하나의 NN만 edit log쓸 수 있음  
+&Leftarrow; SSH Fencing명령어로 NN Kill
+- NFS 필러 : 공유 edit log를 저장하기 때문에 여러 NN접근 가능  
+&Leftarrow; NN이 공유 Storage Directory접근 불허, 원격관리 명령어로 네트워크포트막기, 기존 활성NN STONITH (Host전원 강제차단 by PDU)
