@@ -57,7 +57,7 @@ Master-Worker pattern
 File System의 namespace관리  
 File System Tree와 해당 Tree에 포함된 File, Directory에 대한 metadata유지.  
 &forall; block이  어느 노드에 존재하는지 파악. but Disk에 영속적 저장 X (시스템시작시 위치정보 재구성)   
-** metadata 종류**
+**metadata종류**
 - namespace image : HDFS의 namespace (Directory명, File명, 상태정보 등) 와 파일에 대한 블록 맵핑정보 저장하는 File
 - edit log : HDFS의 metadata에 대한 모든 변화를 기록하는 log file
 
@@ -109,7 +109,8 @@ Tree의 단계 : 데이터센터 &supset; 랙 &supset; 노드
 가용대역폭 : 동일노드 > 동일 랙 다른노드 > 동일 데이터센터 내 다른랙의 노드 > 다른 데이터 센터에 있는 노드  
 ![3read](/assets/img/postimg/3dist.png)  
 $$distance(d_1/r_1/n_1,d_1/r_1/n_1) = 0$$
-
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$ 
+Hadoop은 자동으로 Network Topology인식 X, default ) Network 단일수준 계층 (&forall;노드 &subset; 단일 랙 &subset; 단일 데이터센터)
 
 ## 4. HDFS Federation
 ## 5. HDFS High Availability
