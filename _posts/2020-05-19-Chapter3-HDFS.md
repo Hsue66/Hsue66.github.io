@@ -144,8 +144,10 @@ NN은 파일blk구성 이미 알고있고, 최소복제 wait 후 최종성공신
 #### Write 중 DN에 장애 발생 시  
 Pipeline 닫히고 ack큐 패킷이 데이터큐 앞쪽에 추가(패킷유실 방지)  
 장애 DN을 Pipeline에서 제거. 정상 DN으로 data전송 (NN이 해당 blk불완전 복제 인식 &rarr; 후에 처리)  
-장애발생 DN 복구시, 불완전 blk삭제   
-두개 이상의 DN장애는 희박
+장애발생 DN 복구시, 불완전 blk삭제
+두개 이상의 DN장애는 희박  
+dfs.namenode.replication.min저장되면 쓰기 성공으로 간주  
+dfs.replication에 도달할때까지 cluster에서 async하게 복제 수행  
 
 #### 복사본 배치
 신뢰성, 쓰기대역폭, 읽기대역폭 tradeoff 관계  
