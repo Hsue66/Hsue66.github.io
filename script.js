@@ -14,3 +14,19 @@ if (menuToggle && siteNav) {
     }
   });
 }
+
+const projectList = document.querySelector("#project-list");
+const projectCards = projectList ? projectList.querySelectorAll(".project-card") : [];
+const previousProject = document.querySelector("#project-prev");
+const nextProject = document.querySelector("#project-next");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function moveProjects(direction) {
+  const firstProject = projectCards[0];
+  if (!projectList || !firstProject) return;
+  const distance = firstProject.getBoundingClientRect().width + 16;
+  projectList.scrollBy({ left: distance * direction, behavior: reduceMotion.matches ? "auto" : "smooth" });
+}
+
+previousProject?.addEventListener("click", () => moveProjects(-1));
+nextProject?.addEventListener("click", () => moveProjects(1));

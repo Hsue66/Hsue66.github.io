@@ -15,11 +15,11 @@
       <a class="brand" href="#home" aria-label="Sumin Hong home">Sumin<span>.exe</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" aria-label="Primary navigation">
+        <a href="#cv">CV Archive</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#research">Research</a>
-        <a href="#cv">CV Archive</a>
         <a href="#games">Games</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -31,7 +31,7 @@
           <p class="eyebrow">SOFTWARE ENGINEER // TIME CAPSULE 001</p>
           <h1 id="hero-title">Hi, I’m <em>Sumin Hong</em>.</h1>
           <p class="intro">I’m a software engineer who likes building useful things and learning as I go. This site also keeps a little time capsule of me from eight years ago.</p>
-          <a class="button" href="#games">Play the demo <span aria-hidden="true">↘</span></a>
+          <a class="button" href="#games">Play snake game <span aria-hidden="true">↘</span></a>
         </div>
         <div class="hero-terminal" aria-label="Profile status">
           <p>&gt; whoami</p>
@@ -43,28 +43,37 @@
         </div>
       </section>
 
-      <section class="content-section" id="about" aria-labelledby="about-title">
-        <p class="section-label">01 / ABOUT</p>
+      <section class="content-section archive-section" id="cv" aria-labelledby="cv-title">
+        <p class="section-label">01 / CV ARCHIVE</p>
+        <div class="archive-layout"><div><h2 id="cv-title">A younger me, carefully preserved.</h2><p class="lede">This is an old CV, kept like a small box of photographs and unfinished ideas. The dates are old; the curiosity is still familiar.</p></div><div class="archive-card file-folder-card"><p>ORIGINAL FILE</p><strong>CV_2017</strong><span>please handle with nostalgia</span></div></div>
+        <div class="archive-notes"><span>2013—2018 / COMPUTER SCIENCE</span><span>HONORS / CUM LAUDE</span><span>RESEARCH / MOBILE / IOT</span></div>
+        <span class="retro-floppy" aria-hidden="true"></span>
+      </section>
+
+      <section class="content-section about-section" id="about" aria-labelledby="about-title">
+        <p class="section-label">02 / ABOUT</p>
         <div class="section-heading"><h2 id="about-title">A builder with a soft spot for curious problems.</h2><span class="section-index">[A]</span></div>
         <p class="lede">I work across software engineering, data, and mobile projects. I enjoy the part where an idea is still a little rough around the edges — then slowly turns into something useful.</p>
+        <figure class="profile-card"><img src="assets/profile.jpg" srcset="assets/profile.jpg 1x, assets/profile@2x.jpg 2x" alt="Portrait of Sumin Hong" loading="lazy"><figcaption>PROFILE_RESOURCE // Sumin Hong</figcaption></figure>
         <div class="fact-grid">
           <article><p class="card-kicker">NOW / THEN</p><h3>Research &amp; software</h3><p>Research intern in the Data Mining Lab at Seoul National University; B.S. in Computer Science from Korea Aerospace University.</p></article>
           <article><p class="card-kicker">STACK</p><h3>Many ways to build</h3><p>C/C++, Java, Python, SQL, React Native, Swift, TensorFlow, MySQL, Android Studio, Xcode, and Git.</p></article>
         </div>
       </section>
 
-      <section class="content-section" id="projects" aria-labelledby="projects-title">
-        <p class="section-label">02 / PROJECTS</p>
+      <section class="content-section projects-section" id="projects" aria-labelledby="projects-title">
+        <p class="section-label">03 / PROJECTS</p>
         <div class="section-heading"><h2 id="projects-title">Small systems, real experiments.</h2><span class="section-index">[P]</span></div>
-        <div class="project-list">
+        <div class="project-toolbar"><p class="card-kicker">SELECTED WORK / 03 ITEMS</p><div class="project-controls"><button class="project-control" id="project-prev" type="button" aria-label="Previous project" aria-controls="project-list">←</button><button class="project-control" id="project-next" type="button" aria-label="Next project" aria-controls="project-list">→</button></div></div>
+        <div class="project-list" id="project-list" role="region" aria-label="Selected projects" tabindex="0">
           <article class="project-card"><span>01</span><div><h3>SonicPlay</h3><p>Binaural video player and editor built during iOS development work at SonicTier.</p></div><b aria-hidden="true">↗</b></article>
           <article class="project-card"><span>02</span><div><h3>MediaQ</h3><p>A summer internship project at the Integrated Media Systems Center, University of Southern California.</p></div><b aria-hidden="true">↗</b></article>
           <article class="project-card"><span>03</span><div><h3>PSoC control library</h3><p>A software library for controlling a PSoC shield, created at Smart Lab in Helsinki.</p></div><b aria-hidden="true">↗</b></article>
         </div>
       </section>
 
-      <section class="content-section split-section" id="experience" aria-labelledby="experience-title">
-        <div><p class="section-label">03 / EXPERIENCE</p><h2 id="experience-title">A timeline of early making.</h2></div>
+      <section class="content-section split-section experience-section" id="experience" aria-labelledby="experience-title">
+        <div><p class="section-label">04 / EXPERIENCE</p><h2 id="experience-title">A timeline of early making.</h2></div>
         <ol class="timeline">
           <li><time>2017—now</time><div><h3>Data Mining Lab</h3><p>Research intern, Seoul National University.</p></div></li>
           <li><time>2017</time><div><h3>SonicTier</h3><p>iOS developer, Gyeonggi Regional Research Center.</p></div></li>
@@ -74,14 +83,8 @@
       </section>
 
       <section class="content-section research-section" id="research" aria-labelledby="research-title">
-        <p class="section-label">04 / RESEARCH</p>
+        <p class="section-label">05 / RESEARCH</p>
         <div class="research-panel"><div><h2 id="research-title">Questions are good interfaces.</h2><p>My research path began with data mining, surrounded by people who made hard problems feel playful. That curiosity still shapes how I build.</p></div><span class="pixel-mark" aria-hidden="true">✦</span></div>
-      </section>
-
-      <section class="content-section archive-section" id="cv" aria-labelledby="cv-title">
-        <p class="section-label">05 / CV ARCHIVE</p>
-        <div class="archive-layout"><div><h2 id="cv-title">A younger me, carefully preserved.</h2><p class="lede">This is an old CV, kept like a small box of photographs and unfinished ideas. The dates are old; the curiosity is still familiar.</p></div><div class="archive-card"><p>ORIGINAL FILE</p><strong>CV_2017</strong><span>please handle with nostalgia</span></div></div>
-        <div class="archive-notes"><span>2013—2018 / COMPUTER SCIENCE</span><span>HONORS / CUM LAUDE</span><span>RESEARCH / MOBILE / IOT</span></div>
       </section>
 
       <section class="content-section games-section" id="games" aria-labelledby="games-title">
